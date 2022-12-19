@@ -35,10 +35,8 @@ steps:
 - task: PowerShell@2
   displayName: Set CodeQL Environment Variables
   inputs:
-   #targetType: inline
+   targetType: inline
    script: >
-          echo "json directory path"
-          ls $(System.DefaultWorkingDirectory)/codeql/codeql-dbs/sec-poc-demo-dotnet-repo/temp/tracingEnvironment
           $json = Get-Content $(System.DefaultWorkingDirectory)/codeql/codeql-dbs/sec-poc-demo-dotnet-repo/temp/tracingEnvironment/start-tracing.json | ConvertFrom-Json
           $json.PSObject.Properties | ForEach-Object {
               $template = "##vso[task.setvariable variable="
