@@ -11,8 +11,8 @@ pool:
 
 steps:
 - powershell: |
-        Invoke-WebRequest -Uri https://github.com/github/codeql-action/releases/latest/download/codeql-bundle-win64.tar.gz -OutFile $(Agent.BuildDirectory)
-        tar -xvzf $(Agent.BuildDirectory)/codeql-bundle-win64.tar.gz
+        Invoke-WebRequest -Uri https://github.com/github/codeql-action/releases/latest/download/codeql-bundle-win64.tar.gz -OutFile $(Agent.BuildDirectory)/s/codeql-bundle-win64.tar.gz
+        tar -xvzf $(Agent.BuildDirectory)/s/codeql-bundle-win64.tar.gz
         echo current working directory
         pwd
         echo list directory
