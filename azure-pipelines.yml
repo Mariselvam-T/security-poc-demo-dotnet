@@ -33,7 +33,8 @@ steps:
   displayName: CodeQL Initialization
   inputs:
     script: |
-      New-Item -Path '$(System.DefaultWorkingDirectory)/codeql/codeql-dbs' -ItemType Directory
+      #New-Item -Path '$(System.DefaultWorkingDirectory)/codeql/codeql-dbs' -ItemType Directory
+      "mkdir $(System.DefaultWorkingDirectory)/codeql/codeql-dbs"
       echo "ls codeql directory"
       ls $(System.DefaultWorkingDirectory)/codeql
       #"mkdir $(Agent.BuildDirectory)/s/codeql-dbs"
