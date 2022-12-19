@@ -19,6 +19,6 @@ steps:
   displayName: 'Run a multi-line script'
 
 - script: 
-    wget https://github.com/github/codeql-action/releases/latest/download/codeql-bundle-linux64.tar.gz
+    Invoke-WebRequest https://github.com/github/codeql-action/releases/latest/download/codeql-bundle-linux64.tar.gz
     tar -xvzf ./codeql-bundle-linux64.tar.gz
   displayName: 'Download Codeql CLI package'
