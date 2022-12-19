@@ -33,9 +33,11 @@ steps:
   displayName: CodeQL Initialization
   inputs:
     script: |
-      "New-Item -Path '$(System.DefaultWorkingDirectory)/codeql-dbs' -ItemType Directory"
+      "New-Item -Path '$(System.DefaultWorkingDirectory)/codeql/codeql-dbs' -ItemType Directory"
+      echo "ls codeql directory"
+      ls $(System.DefaultWorkingDirectory)/codeql
       #"mkdir $(Agent.BuildDirectory)/s/codeql-dbs"
-      "codeql database init --language csharp --trace-process-name Agent.Worker.exe --source-root . --begin-tracing /codeql-dbs/sec-poc-demo-dotnet-repo"
+      "codeql database init --language csharp --trace-process-name Agent.Worker.exe --source-root . --begin-tracing $(System.DefaultWorkingDirectory)/codeql/codeql-dbs/sec-poc-demo-dotnet-repo"
 
 - task: PowerShell@2
   displayName: Set CodeQL Environment Variables
