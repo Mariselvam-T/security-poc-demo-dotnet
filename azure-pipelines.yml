@@ -19,25 +19,15 @@ steps:
 - powershell: |
     Invoke-WebRequest -Uri https://github.com/github/codeql-action/releases/latest/download/codeql-bundle-win64.tar.gz -OutFile $(System.DefaultWorkingDirectory)/codeql-bundle-win64.tar.gz
     tar -xvzf $(System.DefaultWorkingDirectory)/codeql-bundle-win64.tar.gz
-    #echo current working directory
-    #pwd
-    #echo list directory
-    #ls
-    #./codeql/codeql resolve qlpacks
-    ##echo Agent build directory $(Agent.BuildDirectory)
-    #echo Agent HomeDirectory directory $(Agent.HomeDirectory)
-    #echo DefaultWorkingDirectory $(System.DefaultWorkingDirectory)
   displayName: 'Download Codeql CLI package'
 
 - task: CmdLine@2
   displayName: CodeQL Initialization
   inputs:
     script: |
-      #New-Item -Path '$(System.DefaultWorkingDirectory)/codeql/codeql-dbs' -ItemType Directory
-      "mkdir $(System.DefaultWorkingDirectory)/codeql/codeql-dbs"
+      "mkdir $(System.DefaultWorkingDirectory)\codeql\codeql-dbs"
       echo "ls codeql directory"
       ls $(System.DefaultWorkingDirectory)/codeql
-      #"mkdir $(Agent.BuildDirectory)/s/codeql-dbs"
       "codeql database init --language csharp --trace-process-name Agent.Worker.exe --source-root . --begin-tracing $(System.DefaultWorkingDirectory)/codeql/codeql-dbs/sec-poc-demo-dotnet-repo"
 
 - task: PowerShell@2
