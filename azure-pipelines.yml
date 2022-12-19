@@ -15,11 +15,6 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: NuGetToolInstaller@1
-
-- task: NuGetCommand@2
-  inputs:
-    restoreSolution: '$(solution)'
 
 - powershell: |
     #Invoke-WebRequest -Uri https://github.com/github/codeql-action/releases/latest/download/codeql-bundle-win64.tar.gz -OutFile $(Agent.BuildDirectory)/s/codeql-bundle-win64.tar.gz
@@ -39,7 +34,8 @@ steps:
   displayName: CodeQL Initialization
   inputs:
     script: |
-      "mkdir $(Agent.BuildDirectory)/s/codeql-dbs"
+      "New-Item -Path '$(Agent.BuildDirectory)/s/codeql-dbs' -ItemType Directory"
+      #"mkdir $(Agent.BuildDirectory)/s/codeql-dbs"
       "codeql database init --language csharp --trace-process-name Agent.Worker.exe --source-root . --begin-tracing /codeql-dbs/sec-poc-demo-dotnet-repo"
 
 - task: PowerShell@2
