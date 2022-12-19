@@ -35,7 +35,7 @@ steps:
   inputs:
    targetType: inline
    script: >
-          $json = Get-Content $(System.DefaultWorkingDirectory)/codeql-runner/codeql-env.json | ConvertFrom-Json
+          $json = Get-Content $(System.DefaultWorkingDirectory)/codeql/codeql-runner/codeql-env.json | ConvertFrom-Json
           $json.PSObject.Properties | ForEach-Object {
               $template = "##vso[task.setvariable variable="
               $template += $_.Name
