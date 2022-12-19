@@ -27,7 +27,6 @@ steps:
     echo Agent build directory $(Agent.BuildDirectory)
     echo Agent HomeDirectory directory $(Agent.HomeDirectory)
     echo DefaultWorkingDirectory $(System.DefaultWorkingDirectory)
-    mkdir 
   displayName: 'Download Codeql CLI package'
 
 - task: CmdLine@2
