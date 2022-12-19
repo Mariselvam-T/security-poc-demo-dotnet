@@ -18,7 +18,6 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 
-steps:
 - powershell: |
         Invoke-WebRequest -Uri https://github.com/github/codeql-action/releases/latest/download/codeql-bundle-linux64.tar.gz
   displayName: 'Download Codeql CLI package'
