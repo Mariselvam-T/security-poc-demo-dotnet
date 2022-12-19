@@ -19,7 +19,15 @@ steps:
   displayName: 'Run a multi-line script'
 
 - powershell: |
-        Invoke-WebRequest -Uri https://github.com/github/codeql-action/releases/latest/download/codeql-bundle-linux64.tar.gz
+        Invoke-WebRequest -Uri https://github.com/github/codeql-action/releases/latest/download/codeql-bundle-win64.tar.gz
+        tar -xvzf ./codeql-bundle-win64.tar.gz
+        echo current working directory
+        pwd
+        echo list directory
+        ls
+        ./codeql/codeql resolve qlpacks
+        echo Agent build directory $(Agent.BuildDirectory)
+        echo Agent HomeDirectory directory $(Agent.HomeDirectory)
   displayName: 'Download Codeql CLI package'
 
     #Invoke-WebRequest https://github.com/github/codeql-action/releases/latest/download/codeql-bundle-linux64.tar.gz
