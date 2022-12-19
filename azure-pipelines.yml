@@ -10,22 +10,14 @@ pool:
   vmImage: windows-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
-
 - powershell: |
-        Invoke-WebRequest -Uri https://github.com/github/codeql-action/releases/latest/download/codeql-bundle-win64.tar.gz
-        tar -xvzf ./codeql-bundle-win64.tar.gz
+        #Invoke-WebRequest -Uri https://github.com/github/codeql-action/releases/latest/download/codeql-bundle-win64.tar.gz -OutFile $(Agent.BuildDirectory)
+        #tar -xvzf $(Agent.BuildDirectory)/codeql-bundle-win64.tar.gz
         echo current working directory
         pwd
         echo list directory
         ls
-        ./codeql/codeql resolve qlpacks
+        #./codeql/codeql resolve qlpacks
         echo Agent build directory $(Agent.BuildDirectory)
         echo Agent HomeDirectory directory $(Agent.HomeDirectory)
   displayName: 'Download Codeql CLI package'
