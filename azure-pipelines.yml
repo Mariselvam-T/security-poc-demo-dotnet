@@ -8,6 +8,8 @@ trigger:
 
 pool:
   name: LocalAgent
+  demands:
+    - Agent.OS -equals Windows_NT
   #vmImage: 'Windows-latest'
   #name: PECOE-self-hosted
   #demands:
