@@ -13,7 +13,7 @@ pool:
     #- Agent.OS -equals Windows_NT
   name: LocalAgent
   demands:
-    - Agent.OS -equals LAPTOP-IG9UCR4N
+    - Agent.OS -equals Windows_NT
 
 variables:
   solution: '**/*.sln'
