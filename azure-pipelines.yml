@@ -7,7 +7,8 @@ trigger:
 - main
 
 pool:
-  vmImage: 'Windows-latest'
+  #vmImage: 'Windows-latest'
+  name: PECOE-self-hosted
 
 variables:
   solution: '**/*.sln'
